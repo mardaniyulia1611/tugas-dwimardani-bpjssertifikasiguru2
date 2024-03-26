@@ -128,22 +128,11 @@ public function import(Request $request)
 
 public function import_proses(Request $request)
 {
-    $file = $request->file('file');
-    $namafile = $file->getClientOriginalName();
-    $file->move('DataPengajuan', $namafile);
 
-    Excel::import(new PengajuanImport, public_path('/DataPengajuan/'.$namafile));
-    return redirect('detail');
 
-    if ($request->hasFile('uploaded_file')) {
-        $file = $request->file('uploaded_file');
-        $filename = $file->getClientOriginalName();
+    Excel::import(new PengajuanImport(),$request->file('file'));
 
-    } else {
-
-        echo "Tidak ada file yang diupload.";
-    }
-
+    return redirect()->route('admin.index');
 }
 
 
@@ -151,6 +140,8 @@ public function import_proses(Request $request)
 public function PengajuanExport($id)
 {
     return Excel::download(new PengajuanExport($id), 'pengajuan.xlsx');
+
+
 }
 
 
