@@ -21,7 +21,6 @@ class UserProfileController extends Controller
         $user = Auth::user();
         $user->email = $request->email;
         $user->name = $request->name;
-        // Update field lain sesuai dengan form
         $user->save();
 
         return redirect()->back()->with('success', 'Profil berhasil diperbarui.');

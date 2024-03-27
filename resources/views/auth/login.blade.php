@@ -23,7 +23,6 @@
   <div class="login-logo">
     <a href="{{ route('login') }}"><b>BPJS</b>kesehatan</a>
   </div>
-  <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -58,11 +57,9 @@
             <div class="icheck-primary">
             </div>
           </div>
-          <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
@@ -73,12 +70,8 @@
         <a href="" class="text-center">Belum Punya Akun?Daftar</a>
       </p>
     </div>
-    <!-- /.login-card-body -->
   </div>
 </div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
 <script src="{{  asset('LTE/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{  asset('LTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
