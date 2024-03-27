@@ -4,7 +4,7 @@
 namespace App\Imports;
 
 use App\Models\Pengajuan;
-use App\Models\detail; // Tambahkan use statement untuk model DetailPengajuan
+use App\Models\detail; 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
