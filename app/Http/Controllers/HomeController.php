@@ -132,7 +132,7 @@ public function import_proses(Request $request)
 
     Excel::import(new PengajuanImport(),$request->file('file'));
 
-    return redirect()->route('admin.index');
+    return redirect()->back()->with('success','berhasil ditambahkan');
 }
 
 

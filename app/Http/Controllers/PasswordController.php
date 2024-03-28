@@ -36,7 +36,7 @@ class PasswordController extends Controller
 
             return redirect()->route('admin.profile ')->with('success', 'Password berhasil diubah.');
         } catch (\Exception $e) {
-            // Tangani kesalahan saat menyimpan
+
             return back()->with('error', 'Terjadi kesalahan saat menyimpan password baru.');
         }
     }

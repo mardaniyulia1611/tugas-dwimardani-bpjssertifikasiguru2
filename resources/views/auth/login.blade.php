@@ -64,10 +64,10 @@
       </form>
 
       <p class="mb-1">
-        <a href="">Lupa Password?</a>
+     
       </p>
       <p class="mb-0">
-        <a href="" class="text-center">Belum Punya Akun?Daftar</a>
+
       </p>
     </div>
   </div>

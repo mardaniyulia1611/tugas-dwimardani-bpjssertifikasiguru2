@@ -1,43 +1,52 @@
 <?php
 
-
 namespace App\Imports;
 
 use App\Models\Pengajuan;
-use App\Models\detail; 
+use App\Models\detail;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
-use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
 
 class PengajuanImport implements ToCollection
 {
-    /**
-     * @param array $row
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
     public function collection(Collection $collection)
     {
-        $indexKe = 1;
+        foreach ($collection as $index => $row) {
+            if ($index > 0) {
+                $pengajuan = Pengajuan::firstOrCreate([
+                    'nomor_pengajuan' => !empty($row[0]) ? $row[0] : null,
+                ], [
+                    'tanggal_pengajuan' => !empty($row[1]) ? $this->transformDate($row[1]) : null,
+                    'keterangan' => !empty($row[2]) ? $row[2] : null,
+                ]);
 
-        foreach ($collection as $row) {
-            if ($indexKe > 1) {
-                $pengajuan = new Pengajuan();
-                $pengajuan->nomor_pengajuan = !empty($row[0]) ? $row[0] : '';
-                if (!empty($row[1])) {
-                    $tanggalPengajuan = ExcelDate::excelToDateTimeObject($row[1]);
-                    $pengajuan->tanggal_pengajuan = $tanggalPengajuan->format('Y-m-d');
-                } else {
-                    $pengajuan->tanggal_pengajuan = null;
+                if (!empty($row[3])) {
+                    $detailPengajuan = new detail([
+                        'nominal' => $row[3],
+                    ]);
+                    $detailPengajuan->pengajuan_id = $pengajuan->id;
+                    $detailPengajuan->save();
                 }
-                $pengajuan->keterangan = !empty($row[2]) ? $row[2] : '';
-                $pengajuan->save();
-
-                $detailPengajuan = new detail();
-                $detailPengajuan->nominal = !empty($row[3]) ? $row[3] : '';
-                $detailPengajuan->pengajuan()->associate($pengajuan);
-                $detailPengajuan->save();
             }
-            $indexKe++;
+        }
+    }
+
+    /**
+     *
+     * @param mixed $value
+     * @return string|null
+     */
+    private function transformDate($value)
+    {
+        if (empty($value)) {
+            return null;
+        }
+
+        try {
+            $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value);
+            return $date->format('Y-m-d');
+        } catch (\Throwable $th) {
+            return null;
         }
     }
 }
