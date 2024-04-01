@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Ubah Password') }}</div>
 
                 <div class="card-body">
-                    @if(session('error')) 
+                    @if(session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
 

@@ -34,8 +34,10 @@ Route::put('/update/{id}',[HomeController::class,'update'])->name('update');
 Route::delete('/delete/{id}',[HomeController::class,'delete'])->name('user.delete');
 Route::get('/profile', [UserProfileController::class, 'profile'])->name('profile');
 Route::put('/profile', [UserProfileController::class, 'update_profile'])->name('user.profile.update');
+
 Route::get('/ubah-password', [PasswordController::class, 'ubahPasswordForm'])->name('password.form');
 Route::post('/ubah-password', [PasswordController::class,'ubahPassword'])->name('password.update');
+
 Route::get('/import-excel', [HomeController::class,'import'])->name('import-excel');
 Route::post('/import-proses', [HomeController::class,'import_proses'])->name('import-proses');
 Route::get('/export-excel/{id}', [HomeController::class,'PengajuanExport'])->name('export-excel');
