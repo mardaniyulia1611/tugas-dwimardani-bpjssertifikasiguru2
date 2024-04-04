@@ -65,7 +65,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin.dashboard') }}">
                 <span class="menu-title">Halaman Utama</span>
-                <i class="icon-screen-desktop menu-icon"></i>
+                <i class="icon-home menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
