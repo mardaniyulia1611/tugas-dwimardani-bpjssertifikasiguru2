@@ -15,9 +15,6 @@
           <div class="card-body">
             <h4 class="mb-4">Pengajuan Detail</h4>
 
-            <div class="text-left">
-                <a href="{{ route('admin.import-excel') }}" class="btn btn-rounded btn-primary mb-4"><i class="icon-docs">  </i>IMPORT EXCEL</a>
-            </div>
             <div class="text-right">
                 <a href="{{ route('admin.export-excel', ['id' => $data->id]) }}" class="btn btn-rounded btn-success mb-4"><i class="icon-printer">  </i>EXPORT EXCEL</a>
                 <a href="{{ route('admin.detail',['id'=> $data->id]) }}?export=pdf" class="btn btn-rounded btn-danger mb-4"><i class="icon-printer">  </i>EXPORT PDF</a>

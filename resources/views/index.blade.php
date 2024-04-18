@@ -19,6 +19,7 @@
 
 <div>
     <div class="text-right">
+            <a href="{{ route('admin.import-excel') }}" class="btn btn-rounded btn-primary mb-4"><i class="icon-docs">  </i>IMPORT EXCEL</a>
        <a href="{{ route('admin.tambah-pengajuan') }}" class="btn btn-rounded btn-success mb-3"><i class="icon-plus">  </i>Tambah Pengajuan</a>
     </div>
 </div>
