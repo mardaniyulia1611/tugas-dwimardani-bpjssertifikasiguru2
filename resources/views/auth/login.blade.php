@@ -64,7 +64,7 @@
       </form>
 
       <p class="mb-1">
-     
+     <a href="">buat akun?</a>
       </p>
       <p class="mb-0">
 

@@ -19,7 +19,7 @@
 
 <div>
     <div class="text-right">
-            <a href="{{ route('admin.import-excel') }}" class="btn btn-rounded btn-link mb-4"><i class="icon-docs">  </i>IMPORT EXCEL</a>
+            <a href="{{ route('admin.import-excel') }}" class="btn btn-rounded btn-primary mb-4"><i class="icon-docs">  </i>IMPORT EXCEL</a>
        <a href="{{ route('admin.tambah-pengajuan') }}" class="btn btn-rounded btn-success mb-3"><i class="icon-plus">  </i>Tambah Pengajuan</a>
     </div>
 </div>
@@ -42,7 +42,7 @@
                 <td>{{ $d->keterangan }}</td>
                 <td>
                     <a href="{{ route('admin.detail',['id' => $d->id]) }}" class="btn btn-rounded btn-sm btn-secondary"><i class=" icon-info">  </i>Detail</a>
-                    <a href="{{ route('admin.edit',['id' => $d->id]) }}" class="btn btn-rounded btn-sm btn-primary"><i class="icon-pencil">  </i>Edit</a>
+                    <a href="{{ route('admin.edit',['id' => $d->id]) }}" class="btn btn-rounded btn-sm btn-dark"><i class="icon-pencil">  </i>Edit</a>
                     <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}" class="btn btn-rounded btn-sm btn-danger"><i class="icon-trash">  </i>Hapus</a>
                 </td>
 
